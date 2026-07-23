@@ -1,15 +1,19 @@
-/* Hallmark · genre: editorial · macrostructure: Long Document · theme: Newsprint-leaning custom
- * axes: paper=light · display=roman-serif · accent=warm (oxblood 25)
- * nav: N9 edge-aligned masthead · footer: Ft2 inline · enrichment: none · studied: no
+/* Hallmark · genre: editorial · macrostructure: Long Document · theme: custom lilac (sakura)
+ * axes: paper=light · display=roman-serif · accent=cool-violet 305
+ * nav: N9 edge-aligned masthead · footer: Ft2 inline · enrichment: pixel-sakura canvas · studied: no
  */
 :root {
-  --color-paper:   oklch(90% 0.05 300);
-  --color-paper-2: oklch(90% 0.05 300);
-  --color-rule:    oklch(84% 0.010 85);
-  --color-neutral: oklch(48% 0.012 70);
-  --color-ink:     oklch(21% 0.012 60);
-  --color-accent:  oklch(45% 0.140 25);
-  --color-focus:   oklch(55% 0.150 25);
+  --color-paper:   oklch(97.5% 0.010 305);
+  --color-paper-2: oklch(94.5% 0.014 305);
+  --color-rule:    oklch(86% 0.020 305);
+  --color-neutral: oklch(47% 0.030 300);
+  --color-ink:     oklch(23% 0.025 300);
+  --color-accent:  oklch(46% 0.150 305);
+  --color-focus:   oklch(56% 0.160 305);
+
+  --petal-1: oklch(87% 0.055 340);
+  --petal-2: oklch(83% 0.065 320);
+  --petal-3: oklch(90% 0.040 310);
 
   --font-display: "Newsreader", ui-serif, Georgia, serif;
   --font-body:    "Newsreader", ui-serif, Georgia, serif;
@@ -34,6 +38,7 @@
   --measure: 41rem;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-reveal: 650ms;
   --dur-short: 180ms;
 
   --rule-hair: 1px solid var(--color-rule);

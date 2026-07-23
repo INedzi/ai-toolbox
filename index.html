@@ -10,8 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="tokens.css">
 <style>
-/* Hallmark · genre: editorial · macrostructure: Long Document · theme: Newsprint-leaning custom · nav: N9 · footer: Ft2 */
-/* Hallmark · pre-emit critique: P4 H4 E4 S4 R5 V4 */
+/* Hallmark · genre: editorial · macrostructure: Long Document · theme: custom lilac (sakura) · nav: N9 · footer: Ft2 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { overflow-x: clip; }
 body {
@@ -23,17 +23,29 @@ body {
   line-height: 1.65;
   font-variant-numeric: oldstyle-nums;
 }
-a { color: var(--color-accent); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+a { color: var(--color-accent); text-decoration-thickness: 1px; text-underline-offset: 0.15em; transition: text-decoration-thickness var(--dur-short) var(--ease-out); }
 a:hover { text-decoration-thickness: 2px; }
 a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; border-radius: 2px; }
 
+/* Sakura canvas — fixed, behind everything, non-interactive */
+#sakura {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  image-rendering: pixelated;
+}
+
 .page {
+  position: relative;
+  z-index: 1;
   max-width: var(--measure);
   margin: 0 auto;
   padding: var(--space-xl) var(--space-md) var(--space-2xl);
 }
 
-/* Masthead — N9 edge-aligned */
 .masthead { border-bottom: 3px double var(--color-rule); padding-bottom: var(--space-sm); margin-bottom: var(--space-2xl); }
 .masthead .mark {
   font-family: var(--font-outlier);
@@ -60,7 +72,6 @@ h1 {
 .lede {
   font-size: var(--text-md);
   line-height: 1.55;
-  color: var(--color-ink);
   margin: 0 0 var(--space-2xl);
 }
 .lede strong { font-weight: 700; }
@@ -79,7 +90,9 @@ h2::after {
   width: 2rem;
   border-bottom: 2px solid var(--color-accent);
   margin-top: var(--space-2xs);
+  transition: width var(--dur-reveal) var(--ease-out);
 }
+h2.in::after { width: 3.5rem; }
 p { margin: 0 0 var(--space-md); }
 
 figure { margin: var(--space-lg) 0; }
@@ -88,7 +101,10 @@ figure img, figure video {
   width: 100%;
   height: auto;
   border: var(--rule-hair);
+  background: var(--color-paper-2);
+  transition: border-color var(--dur-short) var(--ease-out);
 }
+figure:hover img, figure:hover video { border-color: var(--color-neutral); }
 figcaption {
   font-family: var(--font-outlier);
   font-size: var(--text-sm);
@@ -97,7 +113,10 @@ figcaption {
   line-height: 1.5;
 }
 
-/* Scoreboard */
+/* Reveal — JS adds .reveal, IntersectionObserver adds .in */
+.reveal { opacity: 0; transform: translateY(10px); transition: opacity var(--dur-reveal) var(--ease-out), transform var(--dur-reveal) var(--ease-out); }
+.reveal.in { opacity: 1; transform: none; }
+
 .tablewrap { overflow-x: auto; margin: var(--space-lg) 0; }
 table {
   width: 100%;
@@ -136,11 +155,14 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  #sakura { display: none; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation: none !important; }
 }
 </style>
 </head>
 <body>
+<canvas id="sakura" aria-hidden="true"></canvas>
 <div class="page">
 
   <header class="masthead">
@@ -218,8 +240,104 @@ footer {
     <p class="footnote">Values are replacement-cost estimates against market rates. The measured KPIs &mdash; cost per click and link CTR &mdash; are tracked daily in MAIA&rsquo;s history. Interface images and videos are brand-neutral renders built from each tool&rsquo;s actual UI code.</p>
   </main>
 
-  <footer>Ieva &middot; 2026</footer>
+  <footer>Ieva &middot; built with Claude Code &middot; 2026</footer>
 
 </div>
+
+<script>
+(function () {
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* --- Reveals: progressive enhancement, JS-only --- */
+  if (!reduced && "IntersectionObserver" in window) {
+    var targets = document.querySelectorAll("main h2, main p, main figure, main .tablewrap");
+    targets.forEach(function (el) { el.classList.add("reveal"); });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+    targets.forEach(function (el) { io.observe(el); });
+  }
+
+  /* --- Pixel sakura --- */
+  if (reduced) return;
+  var canvas = document.getElementById("sakura");
+  var ctx = canvas.getContext("2d");
+  var styles = getComputedStyle(document.documentElement);
+  var COLORS = [
+    styles.getPropertyValue("--petal-1").trim() || "#e8c4d8",
+    styles.getPropertyValue("--petal-2").trim() || "#dcb3d2",
+    styles.getPropertyValue("--petal-3").trim() || "#e9d4e6"
+  ];
+  /* two flutter frames per petal shape, 5x5 pixel grids */
+  var FRAMES = [
+    [
+      ["01100","11110","11111","01111","00110"],
+      ["00100","01110","11111","01110","00100"]
+    ],
+    [
+      ["00110","01111","11111","11110","01100"],
+      ["00100","01110","11111","01110","00100"]
+    ]
+  ];
+  var W, H, petals;
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function makePetal(initial) {
+    var scale = 2 + Math.floor(Math.random() * 2);           /* 2 or 3 px per cell */
+    return {
+      x: Math.random() * W,
+      y: initial ? Math.random() * H : -20,
+      vy: 0.18 + Math.random() * 0.25,                       /* slow fall */
+      amp: 14 + Math.random() * 22,                          /* sway width */
+      freq: 0.0006 + Math.random() * 0.0008,
+      phase: Math.random() * Math.PI * 2,
+      scale: scale,
+      shape: Math.floor(Math.random() * FRAMES.length),
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      alpha: 0.45 + Math.random() * 0.3,
+      flutter: 700 + Math.random() * 900
+    };
+  }
+
+  function drawPetal(p, t) {
+    var frame = FRAMES[p.shape][Math.floor(t / p.flutter) % 2];
+    var sway = Math.sin(t * p.freq + p.phase) * p.amp;
+    var x = Math.round((p.x + sway) / p.scale) * p.scale;    /* snap to pixel grid */
+    var y = Math.round(p.y / p.scale) * p.scale;
+    ctx.globalAlpha = p.alpha;
+    ctx.fillStyle = p.color;
+    for (var r = 0; r < 5; r++) {
+      for (var c = 0; c < 5; c++) {
+        if (frame[r][c] === "1") ctx.fillRect(x + c * p.scale, y + r * p.scale, p.scale, p.scale);
+      }
+    }
+  }
+
+  function tick(t) {
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < petals.length; i++) {
+      var p = petals[i];
+      p.y += p.vy;
+      if (p.y > H + 20) petals[i] = makePetal(false);
+      drawPetal(p, t);
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(tick);
+  }
+
+  resize();
+  var COUNT = Math.max(8, Math.min(16, Math.round(window.innerWidth / 90)));
+  petals = [];
+  for (var i = 0; i < COUNT; i++) petals.push(makePetal(true));
+  window.addEventListener("resize", resize);
+  requestAnimationFrame(tick);
+})();
+</script>
 </body>
 </html>
