@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The AI Toolbox</title>
+<meta name="description" content="Ten weeks, seven production tools, zero engineering hires.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+/* Hallmark · genre: editorial · macrostructure: Long Document · theme: Newsprint-leaning custom · nav: N9 · footer: Ft2 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R5 V4 */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  font-variant-numeric: oldstyle-nums;
+}
+a { color: var(--color-accent); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; border-radius: 2px; }
+
+.page {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md) var(--space-2xl);
+}
+
+/* Masthead — N9 edge-aligned */
+.masthead { border-bottom: 3px double var(--color-rule); padding-bottom: var(--space-sm); margin-bottom: var(--space-2xl); }
+.masthead .mark {
+  font-family: var(--font-outlier);
+  font-size: var(--text-sm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-neutral);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  margin: 0 0 var(--space-md);
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.lede {
+  font-size: var(--text-md);
+  line-height: 1.55;
+  color: var(--color-ink);
+  margin: 0 0 var(--space-2xl);
+}
+.lede strong { font-weight: 700; }
+
+h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: var(--space-2xl) 0 var(--space-sm);
+  letter-spacing: -0.01em;
+}
+h2::after {
+  content: "";
+  display: block;
+  width: 2rem;
+  border-bottom: 2px solid var(--color-accent);
+  margin-top: var(--space-2xs);
+}
+p { margin: 0 0 var(--space-md); }
+
+figure { margin: var(--space-lg) 0; }
+figure img, figure video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: var(--rule-hair);
+}
+figcaption {
+  font-family: var(--font-outlier);
+  font-size: var(--text-sm);
+  color: var(--color-neutral);
+  margin-top: var(--space-2xs);
+  line-height: 1.5;
+}
+
+/* Scoreboard */
+.tablewrap { overflow-x: auto; margin: var(--space-lg) 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-outlier);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+}
+th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--color-neutral);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  padding: var(--space-2xs) var(--space-sm) var(--space-2xs) 0;
+  border-bottom: var(--rule-hair);
+}
+td { padding: var(--space-xs) var(--space-sm) var(--space-xs) 0; border-bottom: var(--rule-hair); vertical-align: top; }
+td:first-child { font-weight: 500; }
+
+.footnote {
+  font-size: var(--text-sm);
+  color: var(--color-neutral);
+  border-top: var(--rule-hair);
+  padding-top: var(--space-md);
+  margin-top: var(--space-2xl);
+}
+
+footer {
+  margin-top: var(--space-xl);
+  font-family: var(--font-outlier);
+  font-size: var(--text-sm);
+  color: var(--color-neutral);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="masthead">
+    <div class="mark"><span>The AI Toolbox</span><span>May–July 2026</span></div>
+  </header>
+
+  <main>
+    <h1>Ten weeks. Seven tools. No engineers hired.</h1>
+
+    <p class="lede"><strong>Ieva, with Claude Code.</strong> Every tool here shares one architecture: a Google Sheet as the interface, Apps Script as the engine, Claude and AI image&#8202;/&#8202;video generation as the creative department. This page is the whole portfolio &mdash; about 23,000 lines of working code, written between May and July.</p>
+
+    <h2>MAIA runs the ads desk</h2>
+    <p>It researches real buyers, writes hooks, generates images and video, publishes to Meta &mdash; then pauses losers, promotes winners, and turns every policy rejection into a standing rule. About six weeks and 16,400 lines. Live and autonomous, steering on low cost per click and high link CTR.</p>
+    <figure>
+      <img src="assets/maia-dashboard.png" alt="MAIA dashboard with KPI cards, live ad queue, and a rising link-CTR chart" loading="lazy">
+      <figcaption>The MAIA dashboard: CPC and link-CTR cards, the live ad queue with verdicts, the fourteen-day trend.</figcaption>
+    </figure>
+    <figure>
+      <video controls preload="metadata" playsinline>
+        <source src="assets/maia-intro.mp4" type="video/mp4">
+      </video>
+      <figcaption>Forty-one seconds on how a single sheet row becomes a running, self-optimising campaign.</figcaption>
+    </figure>
+
+    <h2>MailForge turns a brief into a finished email</h2>
+    <p>A copy brief goes into a sheet row; a finished, on-brand HTML email lands in Drive. Two weeks to build, in production for every brand, and three to four design hours saved per email.</p>
+    <figure>
+      <img src="assets/mailforge-dashboard.png" alt="MailForge dashboard with production counters and per-email pipeline stages" loading="lazy">
+      <figcaption>MailForge: production counters, the queue, and each email&rsquo;s stage on the line.</figcaption>
+    </figure>
+    <figure>
+      <video controls preload="metadata" playsinline>
+        <source src="assets/mailforge-intro.mp4" type="video/mp4">
+      </video>
+      <figcaption>Forty-eight seconds: compose, queue, review, delivered HTML.</figcaption>
+    </figure>
+
+    <h2>The video tool animates its own stills</h2>
+    <p>Claude designs a frame, checks it with vision, and Veo&nbsp;3.1 brings it to life. Two weeks, 1,700 lines; it replaces $100&ndash;500 stock clips with a few dollars of rendering.</p>
+    <figure>
+      <img src="assets/sheet-pipeline.png" alt="Google Sheet queue where each row advances through pipeline stages via a status column" loading="lazy">
+      <figcaption>The shared operating model: a sheet queue where every row advances one pipeline stage per tick.</figcaption>
+    </figure>
+
+    <h2>SOT is the quiet multiplier</h2>
+    <p>One spreadsheet auto-syncs brand documents into AI-ready brandbooks that every other tool consumes. A week of work that means no tool hardcodes a brand fact, and onboarding a new brand takes minutes.</p>
+
+    <h2>The fast ones</h2>
+    <p>A Sheets-to-Figma plugin tags catalogue prices in one click &mdash; 37 of 37 verified on the last run. The social post generator, the very first build back in May, is now at version seven. Behind everything sits a shared safety harness &mdash; spend caps, kill switches &mdash; and a small Vercel rendering service.</p>
+    <figure>
+      <img src="assets/social-generator.png" alt="Social post generator app with format picker, background palette, templates, and live canvas" loading="lazy">
+      <figcaption>The social post generator: pick a format, a background, a template; export a ready post.</figcaption>
+    </figure>
+
+    <h2>The scoreboard</h2>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Tool</th><th>Built in</th><th>Status</th><th>Value, estimated</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>MAIA</td><td>6 weeks</td><td>Live, autonomous</td><td>$2,000&ndash;6,000/mo creative replaced</td></tr>
+          <tr><td>MailForge</td><td>2 weeks</td><td>Production</td><td>3&ndash;4 hrs saved per email</td></tr>
+          <tr><td>Video tool</td><td>2 weeks</td><td>Operational</td><td>$100&ndash;500 per clip</td></tr>
+          <tr><td>SOT</td><td>1 week</td><td>Feeds all tools</td><td>Cross-tool multiplier</td></tr>
+          <tr><td>Price sync</td><td>Days</td><td>Verified</td><td>Hours per catalogue</td></tr>
+          <tr><td>Social gen</td><td>Days</td><td>In use</td><td>Proof of concept</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Each one got cheaper to build</h2>
+    <p>Every tool left reusable parts behind &mdash; the pipeline pattern, brand profiles, the safety harness, deploy scripts. The first flagship took six weeks; an equivalent tool today takes days. That compounding is the real product.</p>
+
+    <p class="footnote">Values are replacement-cost estimates against market rates. The measured KPIs &mdash; cost per click and link CTR &mdash; are tracked daily in MAIA&rsquo;s history. Interface images and videos are brand-neutral renders built from each tool&rsquo;s actual UI code.</p>
+  </main>
+
+  <footer>Ieva &middot; built with Claude Code &middot; 2026</footer>
+
+</div>
+</body>
+</html>

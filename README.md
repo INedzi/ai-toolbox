@@ -4,7 +4,7 @@
 
 Every tool runs the same architecture: a Google Sheet as the interface, Apps Script as the engine, Claude + AI image/video generation as the creative department.
 
-> This repo is also a website — see the [live page]([https://YOUR-USERNAME.github.io/ai-toolbox/](https://inedzi.github.io/ai-toolbox/)) with playable intro videos.
+> This repo is also a website — see the [live page](https://YOUR-USERNAME.github.io/ai-toolbox/) with playable intro videos.
 
 ## MAIA — Ads That Manage Themselves
 
@@ -36,7 +36,7 @@ Auto-syncs brand docs into AI-ready brandbooks that every other tool consumes. B
 
 ## See Them Move
 
-Watch the intro videos on the [live site]([https://YOUR-USERNAME.github.io/ai-toolbox/](https://inedzi.github.io/ai-toolbox/)), or download directly:
+Watch the intro videos on the [live site](https://YOUR-USERNAME.github.io/ai-toolbox/), or download directly:
 
 - [MAIA introduction, 41s](assets/maia-intro.mp4)
 - [MailForge introduction, 48s](assets/mailforge-intro.mp4)
