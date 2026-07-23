@@ -7,7 +7,7 @@
 <meta name="description" content="Ten weeks, seven production tools, zero engineering hires.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="tokens.css">
 <style>
 /* Hallmark · genre: editorial · macrostructure: Long Document · theme: custom lilac (sakura) · nav: N9 · footer: Ft2 */
@@ -20,7 +20,7 @@ body {
   color: var(--color-ink);
   font-family: var(--font-body);
   font-size: var(--text-base);
-  line-height: 1.65;
+  line-height: 1.7;
   font-variant-numeric: oldstyle-nums;
 }
 a { color: var(--color-accent); text-decoration-thickness: 1px; text-underline-offset: 0.15em; transition: text-decoration-thickness var(--dur-short) var(--ease-out); }
@@ -41,7 +41,7 @@ a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; bo
 .page {
   position: relative;
   z-index: 1;
-  max-width: var(--measure);
+  max-width: var(--page-wide);
   margin: 0 auto;
   padding: var(--space-xl) var(--space-md) var(--space-2xl);
 }
@@ -62,7 +62,7 @@ a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; bo
 h1 {
   font-family: var(--font-display);
   font-size: var(--text-display);
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.08;
   letter-spacing: -0.015em;
   margin: 0 0 var(--space-md);
@@ -80,7 +80,7 @@ h2 {
   font-family: var(--font-display);
   font-size: var(--text-lg);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.25;
   margin: var(--space-2xl) 0 var(--space-sm);
   letter-spacing: -0.01em;
 }
@@ -94,8 +94,9 @@ h2::after {
 }
 h2.in::after { width: 3.5rem; }
 p { margin: 0 0 var(--space-md); }
+main h1, main h2, main p, .masthead, footer { max-width: var(--measure); }
 
-figure { margin: var(--space-lg) 0; }
+figure { margin: var(--space-xl) 0; max-width: var(--page-wide); }
 figure img, figure video {
   display: block;
   width: 100%;

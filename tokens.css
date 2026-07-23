@@ -15,8 +15,8 @@
   --petal-2: oklch(83% 0.065 320);
   --petal-3: oklch(90% 0.040 310);
 
-  --font-display: "Newsreader", ui-serif, Georgia, serif;
-  --font-body:    "Newsreader", ui-serif, Georgia, serif;
+  --font-display: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body:    "Open Sans", ui-sans-serif, system-ui, sans-serif;
   --font-outlier: "Geist Mono", ui-monospace, "SF Mono", monospace;
 
   --space-2xs: 0.5rem;
@@ -28,14 +28,15 @@
   --space-2xl: 4.5rem;
   --space-3xl: 7rem;
 
-  --text-sm:   0.8rem;
-  --text-base: 1.0625rem;
-  --text-md:   1.25rem;
-  --text-lg:   1.5625rem;
+  --text-sm:   0.875rem;
+  --text-base: 1.1875rem;
+  --text-md:   1.4375rem;
+  --text-lg:   1.75rem;
   --text-xl:   1.9531rem;
-  --text-display: clamp(2.4rem, 4.5vw + 1rem, 4rem);
+  --text-display: clamp(2.6rem, 4.5vw + 1rem, 4.4rem);
 
-  --measure: 41rem;
+  --measure: 46rem;
+  --page-wide: 72rem;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --dur-reveal: 650ms;
