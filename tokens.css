@@ -3,7 +3,7 @@
  * nav: N9 edge-aligned masthead · footer: Ft2 inline · enrichment: none · studied: no
  */
 :root {
-  --color-paper:   oklch(97% 0.008 85);
+  --color-paper:   oklch(90% 0.05 300);
   --color-paper-2: oklch(94% 0.010 85);
   --color-rule:    oklch(84% 0.010 85);
   --color-neutral: oklch(48% 0.012 70);
