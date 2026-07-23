@@ -4,7 +4,7 @@
  */
 :root {
   --color-paper:   oklch(90% 0.05 300);
-  --color-paper-2: oklch(94% 0.010 85);
+  --color-paper-2: oklch(90% 0.05 300);
   --color-rule:    oklch(84% 0.010 85);
   --color-neutral: oklch(48% 0.012 70);
   --color-ink:     oklch(21% 0.012 60);
