@@ -62,4 +62,4 @@ Every build left reusable parts — the pipeline pattern, brand profiles, safety
 
 ---
 
-*Savings are estimates of what the same work would cost from agencies or freelancers. Ad performance is measured and tracked daily inside MAIA. The screenshots and videos are brand-neutral versions of each tool's real interface.*
+*Savings are estimates of what the same work would cost from agencies or freelancers. Ad performance is measured and tracked daily inside MAIA.*

@@ -41,7 +41,7 @@ a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; bo
 .page {
   position: relative;
   z-index: 1;
-  max-width: var(--page-wide);
+  max-width: var(--measure);
   margin: 0 auto;
   padding: var(--space-xl) var(--space-md) var(--space-2xl);
 }
@@ -94,13 +94,8 @@ h2::after {
 }
 h2.in::after { width: 3.5rem; }
 p { margin: 0 0 var(--space-md); }
-main h1, main h2, main p, .masthead, footer, .tablewrap {
-  max-width: var(--measure);
-  margin-left: auto;
-  margin-right: auto;
-}
 
-figure { margin: var(--space-xl) auto; max-width: var(--page-wide); }
+figure { margin: var(--space-xl) 0; }
 figure img, figure video {
   display: block;
   width: 100%;
@@ -232,7 +227,7 @@ footer {
     <h2>Why each one got cheaper</h2>
     <p>Every build left reusable parts &mdash; the pipeline pattern, brand profiles, safety harness, deploy scripts. The first flagship took six weeks; an equivalent tool today takes days. Behind everything sits a shared set of safety checks &mdash; spending caps and kill switches &mdash; so no tool can quietly run up a bill.</p>
 
-    <p class="footnote">Savings are estimates of what the same work would cost from agencies or freelancers. Ad performance is measured and tracked daily inside MAIA. The screenshots and videos are brand-neutral versions of each tool&rsquo;s real interface.</p>
+    <p class="footnote">Savings are estimates of what the same work would cost from agencies or freelancers. Ad performance is measured and tracked daily inside MAIA.</p>
   </main>
 
   <footer>Ieva &middot; 2026</footer>
