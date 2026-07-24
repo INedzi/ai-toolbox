@@ -4,7 +4,7 @@
 
 Every tool here works the same way: you type into a Google Sheet, and AI takes it from there — writing, designing, generating images and video.
 
-> This repo is also a website — see the [live page](https://YOUR-USERNAME.github.io/ai-toolbox/) with playable intro videos.
+> This repo is also a website — see the [live page](https://inedzi.github.io/ai-toolbox/) with playable intro videos.
 
 ## MAIA — Creates and Manages Facebook Ads
 
@@ -40,7 +40,7 @@ A simple app for making social media posts: pick a format, a background and a te
 
 ## Watch the Intro Videos
 
-See them on the [live site](https://YOUR-USERNAME.github.io/ai-toolbox/), or download directly:
+See them on the [live site](https://inedzi.github.io/ai-toolbox/), or download directly:
 
 - [MAIA introduction, 41s](assets/maia-intro.mp4)
 - [MailForge introduction, 48s](assets/mailforge-intro.mp4)
