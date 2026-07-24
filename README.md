@@ -1,42 +1,46 @@
 # The AI Toolbox
 
-**Ieva + Claude Code. Ten weeks, seven production tools, ~23,000 lines, zero engineering hires.**
+**Ieva + Claude Code. Ten weeks, seven production tools, zero engineering hires.**
 
-Every tool runs the same architecture: a Google Sheet as the interface, Apps Script as the engine, Claude + AI image/video generation as the creative department.
+Every tool here works the same way: you type into a Google Sheet, and AI takes it from there — writing, designing, generating images and video.
 
 > This repo is also a website — see the [live page](https://YOUR-USERNAME.github.io/ai-toolbox/) with playable intro videos.
 
-## MAIA — Ads That Manage Themselves
+## MAIA — Creates and Manages Facebook Ads
 
-Researches real buyers, writes hooks, generates images and video, publishes to Meta — then pauses losers, breeds winners, and turns every rejection into a rule. Built in ~6 weeks (~16,400 lines). Live and autonomous, steering on low CPC and high link CTR.
+MAIA studies real customers, writes the ad text, creates the images and videos, and publishes finished ads to Facebook and Instagram. Then it watches how they perform: weak ads get paused, winning ads get promoted, and every rejected ad becomes a lesson it remembers. Built in about six weeks; runs on its own.
 
 ![MAIA dashboard](assets/maia-dashboard.png)
 
-## MailForge — Half a Day of Design Work, Now a Queue Row
+## MailForge — Turns a Short Brief into a Finished Email
 
-A copy brief in a sheet row comes back as a finished, on-brand HTML email in Drive. Built in ~2 weeks (~3,700 lines); in production for every brand. Saves 3–4 design hours per email.
+Write a few sentences describing what an email should say, and MailForge comes back with a finished, branded email — design included, ready to send. Built in about two weeks; used for every brand. Saves 3–4 hours of design work per email.
 
 ![MailForge dashboard](assets/mailforge-dashboard.png)
 
-## Video Tool — Stills That Learned to Move
+## Video Tool — Makes Short Product Videos
 
-Claude designs a frame, checks it with vision, and Veo 3.1 animates it. Built in ~2 weeks (~1,700 lines); replaces $100–500 stock clips with a few dollars of rendering.
+The tool designs a picture, checks its own work, then turns that picture into a moving video clip. A clip that would cost $100–500 to buy as stock footage now costs a few dollars to make. Built in about two weeks.
 
 ![Sheet pipeline interface](assets/sheet-pipeline.png)
 
-## SOT — The Quiet Multiplier
+## Source Of Truth — One Home for All Brand Knowledge
 
-Auto-syncs brand docs into AI-ready brandbooks that every other tool consumes. Built in ~1 week (~780 lines); makes onboarding a new brand a minutes-long task.
+One spreadsheet keeps every brand's facts — colors, products, rules, voice — up to date in a form all the other tools can read. Nothing is copied by hand, so nothing goes stale, and adding a new brand takes minutes instead of days. Built in about a week.
 
-## The Fast Ones
+## Price Sync — Updates Catalog Prices in One Click
 
-**Figma Price Sync** — one-click catalog price tagging, 37/37 verified. **Social Generator** — the May proof-of-concept that started it all, now at v7. Plus a shared safety harness (caps, kill switches) and a Vercel render service behind the scenes.
+A small plugin connects price lists in Google Sheets to catalog designs in Figma. One click updates every price tag — on the last run, all 37 prices matched perfectly.
+
+## Social Generator — The First Experiment
+
+A simple app for making social media posts: pick a format, a background and a template, and export a ready-to-post image. This was the very first build back in May, and it has since grown to version seven.
 
 ![Social post generator](assets/social-generator.png)
 
-## See Them Move
+## Watch the Intro Videos
 
-Watch the intro videos on the [live site](https://YOUR-USERNAME.github.io/ai-toolbox/), or download directly:
+See them on the [live site](https://YOUR-USERNAME.github.io/ai-toolbox/), or download directly:
 
 - [MAIA introduction, 41s](assets/maia-intro.mp4)
 - [MailForge introduction, 48s](assets/mailforge-intro.mp4)
@@ -45,17 +49,17 @@ Watch the intro videos on the [live site](https://YOUR-USERNAME.github.io/ai-too
 
 | Tool | Built in | Status | Value (est.) |
 |---|---|---|---|
-| MAIA | ~6 weeks | Live, autonomous | $2,000–6,000/mo creative replaced |
+| MAIA | ~6 weeks | Live, autonomous | $2,000–6,000/mo saved |
 | MailForge | ~2 weeks | Production | 3–4 hrs saved per email |
-| Video Tool | ~2 weeks | Operational | $100–500 per clip |
-| SOT | ~1 week | Feeds all tools | Cross-tool multiplier |
+| Video Tool | ~2 weeks | Operational | $100–500 per clip saved |
+| Source Of Truth | ~1 week | Feeds all tools | Cross-tool multiplier |
 | Price Sync | Days | Verified | Hours per catalog |
 | Social Generator | Days | In use | Proof of concept |
 
 ## Why Each One Got Cheaper
 
-Every build left reusable parts — the pipeline pattern, brand profiles, safety harness, deploy scripts. The first flagship took six weeks; an equivalent tool today takes days.
+Every build left reusable parts — the pipeline pattern, brand profiles, safety harness, deploy scripts. The first flagship took six weeks; an equivalent tool today takes days. Behind everything sits a shared set of safety checks — spending caps and kill switches — so no tool can quietly run up a bill.
 
 ---
 
-*Values are replacement-cost estimates. Measured KPIs — cost per click and link CTR — are tracked daily in MAIA's History tab. Interface images and videos are brand-neutral renders built from each tool's actual UI code.*
+*Savings are estimates of what the same work would cost from agencies or freelancers. Ad performance is measured and tracked daily inside MAIA. The screenshots and videos are brand-neutral versions of each tool's real interface.*

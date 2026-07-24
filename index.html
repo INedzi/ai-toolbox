@@ -94,9 +94,13 @@ h2::after {
 }
 h2.in::after { width: 3.5rem; }
 p { margin: 0 0 var(--space-md); }
-main h1, main h2, main p, .masthead, footer { max-width: var(--measure); }
+main h1, main h2, main p, .masthead, footer, .tablewrap {
+  max-width: var(--measure);
+  margin-left: auto;
+  margin-right: auto;
+}
 
-figure { margin: var(--space-xl) 0; max-width: var(--page-wide); }
+figure { margin: var(--space-xl) auto; max-width: var(--page-wide); }
 figure img, figure video {
   display: block;
   width: 100%;
@@ -106,13 +110,6 @@ figure img, figure video {
   transition: border-color var(--dur-short) var(--ease-out);
 }
 figure:hover img, figure:hover video { border-color: var(--color-neutral); }
-figcaption {
-  font-family: var(--font-outlier);
-  font-size: var(--text-sm);
-  color: var(--color-neutral);
-  margin-top: var(--space-2xs);
-  line-height: 1.5;
-}
 
 /* Reveal — JS adds .reveal, IntersectionObserver adds .in */
 .reveal { opacity: 0; transform: translateY(10px); transition: opacity var(--dur-reveal) var(--ease-out), transform var(--dur-reveal) var(--ease-out); }
@@ -171,51 +168,48 @@ footer {
   </header>
 
   <main>
-    <h1>Ten weeks. Seven tools. No engineers hired. ~$175,000 saved.</h1>
+    <h1>Ten weeks. Seven tools. No engineers hired.</h1>
 
-    <p class="lede"><strong>Ieva, with Claude Code.</strong> Every tool here shares one architecture: a Google Sheet as the interface, Apps Script as the engine, Claude and AI image&#8202;/&#8202;video generation as the creative department. This page is the whole portfolio &mdash; about 23,000 lines of working code, written between May and July.</p>
+    <p class="lede"><strong>Ieva, with Claude Code.</strong> Every tool here works the same way: you type into a Google Sheet, and AI takes it from there &mdash; writing, designing, generating images and video. This page is the whole portfolio, built between May and July.</p>
 
-    <h2>MAIA runs the ads desk</h2>
-    <p>It researches real buyers, writes hooks, generates images and video, publishes to Meta &mdash; then pauses losers, promotes winners, and turns every policy rejection into a standing rule. About six weeks and 16,400 lines. Live and autonomous, steering on low cost per click and high link CTR.</p>
+    <h2>MAIA &mdash; creates and manages Facebook ads</h2>
+    <p>MAIA studies real customers, writes the ad text, creates the images and videos, and publishes finished ads to Facebook and Instagram. Then it watches how they perform: weak ads get paused, winning ads get promoted, and every rejected ad becomes a lesson it remembers. Built in about six weeks; runs on its own.</p>
     <figure>
       <img src="assets/maia-dashboard.png" alt="MAIA dashboard with KPI cards, live ad queue, and a rising link-CTR chart" loading="lazy">
-      <figcaption>The MAIA dashboard: CPC and link-CTR cards, the live ad queue with verdicts, the fourteen-day trend.</figcaption>
     </figure>
     <figure>
       <video controls preload="metadata" playsinline>
         <source src="assets/maia-intro.mp4" type="video/mp4">
       </video>
-      <figcaption>Forty-one seconds on how a single sheet row becomes a running, self-optimising campaign.</figcaption>
     </figure>
 
-    <h2>MailForge turns a brief into a finished email</h2>
-    <p>A copy brief goes into a sheet row; a finished, on-brand HTML email lands in Drive. Two weeks to build, in production for every brand, and three to four design hours saved per email.</p>
+    <h2>MailForge &mdash; turns a short brief into a finished email</h2>
+    <p>Write a few sentences describing what an email should say, and MailForge comes back with a finished, branded email &mdash; design included, ready to send. Built in about two weeks; used for every brand. Saves three to four hours of design work per email.</p>
     <figure>
       <img src="assets/mailforge-dashboard.png" alt="MailForge dashboard with production counters and per-email pipeline stages" loading="lazy">
-      <figcaption>MailForge: production counters, the queue, and each email&rsquo;s stage on the line.</figcaption>
     </figure>
     <figure>
       <video controls preload="metadata" playsinline>
         <source src="assets/mailforge-intro.mp4" type="video/mp4">
       </video>
-      <figcaption>Forty-eight seconds: compose, queue, review, delivered HTML.</figcaption>
     </figure>
 
-    <h2>The video tool animates its own stills</h2>
-    <p>Claude designs a frame, checks it with vision, and Veo&nbsp;3.1 brings it to life. Two weeks, 1,700 lines; it replaces $100&ndash;500 stock clips with a few dollars of rendering.</p>
+    <h2>Video Tool &mdash; makes short product videos</h2>
+    <p>The tool designs a picture, checks its own work, then turns that picture into a moving video clip. A clip that would cost $100&ndash;500 to buy as stock footage now costs a few dollars to make. Built in about two weeks.</p>
     <figure>
       <img src="assets/sheet-pipeline.png" alt="Google Sheet queue where each row advances through pipeline stages via a status column" loading="lazy">
-      <figcaption>The shared operating model: a sheet queue where every row advances one pipeline stage per tick.</figcaption>
     </figure>
 
-    <h2>SOT is the quiet multiplier</h2>
-    <p>One spreadsheet auto-syncs brand documents into AI-ready brandbooks that every other tool consumes. A week of work that means no tool hardcodes a brand fact, and onboarding a new brand takes minutes.</p>
+    <h2>Source Of Truth &mdash; one home for all brand knowledge</h2>
+    <p>One spreadsheet keeps every brand&rsquo;s facts &mdash; colours, products, rules, voice &mdash; up to date in a form all the other tools can read. Nothing is copied by hand, so nothing goes stale, and adding a new brand takes minutes instead of days. Built in about a week.</p>
 
-    <h2>The fast ones</h2>
-    <p>A Sheets-to-Figma plugin tags catalogue prices in one click &mdash; 37 of 37 verified on the last run. The social post generator, the very first build back in May, is now at version seven. Behind everything sits a shared safety harness &mdash; spend caps, kill switches &mdash; and a small Vercel rendering service.</p>
+    <h2>Price Sync &mdash; updates catalogue prices in one click</h2>
+    <p>A small plugin connects price lists in Google Sheets to catalogue designs in Figma. One click updates every price tag &mdash; on the last run, all 37 prices matched perfectly.</p>
+
+    <h2>Social Generator &mdash; the first experiment</h2>
+    <p>A simple app for making social media posts: pick a format, a background and a template, and export a ready-to-post image. This was the very first build back in May, and it has since grown to version seven.</p>
     <figure>
       <img src="assets/social-generator.png" alt="Social post generator app with format picker, background palette, templates, and live canvas" loading="lazy">
-      <figcaption>The social post generator: pick a format, a background, a template; export a ready post.</figcaption>
     </figure>
 
     <h2>The scoreboard</h2>
@@ -225,20 +219,20 @@ footer {
           <tr><th>Tool</th><th>Built in</th><th>Status</th><th>Value, estimated</th></tr>
         </thead>
         <tbody>
-          <tr><td>MAIA</td><td>6 weeks</td><td>Live, autonomous</td><td>$2,000&ndash;6,000/mo creative replaced</td></tr>
-          <tr><td>MailForge</td><td>2 weeks</td><td>Production</td><td>3&ndash;4 hrs saved per email</td></tr>
-          <tr><td>Video tool</td><td>2 weeks</td><td>Operational</td><td>$100&ndash;500 per clip</td></tr>
-          <tr><td>SOT</td><td>1 week</td><td>Feeds all tools</td><td>Cross-tool multiplier</td></tr>
-          <tr><td>Price sync</td><td>Days</td><td>Verified</td><td>Hours per catalogue</td></tr>
-          <tr><td>Social gen</td><td>Days</td><td>In use</td><td>Proof of concept</td></tr>
+          <tr><td>MAIA</td><td>~6 weeks</td><td>Live, autonomous</td><td>$2,000&ndash;6,000/mo saved</td></tr>
+          <tr><td>MailForge</td><td>~2 weeks</td><td>Production</td><td>3&ndash;4 hrs saved per email</td></tr>
+          <tr><td>Video Tool</td><td>~2 weeks</td><td>Operational</td><td>$100&ndash;500 per clip saved</td></tr>
+          <tr><td>Source Of Truth</td><td>~1 week</td><td>Feeds all tools</td><td>Cross-tool multiplier</td></tr>
+          <tr><td>Price Sync</td><td>Days</td><td>Verified</td><td>Hours per catalog</td></tr>
+          <tr><td>Social Generator</td><td>Days</td><td>In use</td><td>Proof of concept</td></tr>
         </tbody>
       </table>
     </div>
 
-    <h2>Each one got cheaper to build</h2>
-    <p>Every tool left reusable parts behind &mdash; the pipeline pattern, brand profiles, the safety harness, deploy scripts. The first flagship took six weeks; an equivalent tool today takes days. That compounding is the real product.</p>
+    <h2>Why each one got cheaper</h2>
+    <p>Every build left reusable parts &mdash; the pipeline pattern, brand profiles, safety harness, deploy scripts. The first flagship took six weeks; an equivalent tool today takes days. Behind everything sits a shared set of safety checks &mdash; spending caps and kill switches &mdash; so no tool can quietly run up a bill.</p>
 
-    <p class="footnote">Values are replacement-cost estimates against market rates. The measured KPIs &mdash; cost per click and link CTR &mdash; are tracked daily in MAIA&rsquo;s history. Interface images and videos are brand-neutral renders built from each tool&rsquo;s actual UI code.</p>
+    <p class="footnote">Savings are estimates of what the same work would cost from agencies or freelancers. Ad performance is measured and tracked daily inside MAIA. The screenshots and videos are brand-neutral versions of each tool&rsquo;s real interface.</p>
   </main>
 
   <footer>Ieva &middot; 2026</footer>
